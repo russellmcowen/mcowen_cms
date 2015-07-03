@@ -6,6 +6,19 @@
 		spl_autoload_register(function($class) { require_once "../php/class/".$class.".php"; });
 	} catch (Exception $e) { Redirect::to(500); }
 	
+	if(Input::get('p')) {
+		$page = Input::get('p');
+		$subpage = null;
+		if(strpos($page, '/')) {
+			$temp = explode('/', $page);
+			$page = $temp[0];
+			$subpage = array();
+			$subpage = array_shift($temp);
+		} 
+	} else { $page = "home"; }
+	
+	require_once 'index/html.php';
+	/*
 	if(Cookie::exists(Config::get('remember/cookie')) && !Session::exists(Config::get('session/session_name'))) {
 		$hash = Cookie::get(Config::get('remember/cookie'));
 		$hashCheck = DB::getInstance()->get('users_session', array('hash', '=', $hash));
@@ -32,7 +45,6 @@
 	} else {
 		require_once("index/html.php");
 	}
-*/	
 	
 	// REFERRAL ID
 	if (Input::exists('get', 'ref_id')) {
@@ -41,4 +53,6 @@
 	}
 
 	require_once("index/html.php");
+	
+*/	
 ?>

@@ -1,0 +1,10 @@
+Options -Indexes
+DirectoryIndex public/index.php
+
+RewriteEngine On
+RewriteBase /public
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.+)$ index.php?p=$1 [QSA,L]

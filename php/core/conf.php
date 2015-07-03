@@ -1,31 +1,27 @@
 <?php 
-
 // SITE INFO
-$site_name = "GamePoints4Free.com";
-$site_url = "http://gamepoints4free.com";
+$site_name = "Your Site Name";
+$site_url = "http://www.siteurl.com";
 $favicon = "../images/FAVICON.ICO";
-
-// DATABASE INFO
-$db_host = "68.178.216.37";
-$db_user = "freegamer";
-$db_pass = "t3hP@sswurd";
-$db_select = "freegamer";
-
-// IF YOU USE A DIFFERENT DB LOCALLY
-//if ($_SERVER['REMOTE_ADDR'] === '::1' || $_SERVER['REMOTE_ADDR'] === '127.0.0.1') {
-//	$db_host = "";
-//	$db_user = "";
-//	$db_pass = "";
-//	$db_select = "";
-//}
-
 // OPTIONS
 $cookie = 'hash';
 $expires = 604800;
 $session_name = 'user';
 $token_name = 'token';
-
-
+// DATABASE INFO
+$db_host = "68.178.216.37";
+$db_user = "freegamer";
+$db_pass = "t3hP@sswurd";
+$db_select = "freegamer";
+/*
+// IF YOU USE A DIFFERENT DB LOCALLY
+if ($_SERVER['REMOTE_ADDR'] == '::1' || $_SERVER['REMOTE_ADDR'] == '127.0.0.1') {
+	$db_host = "localhost";
+	$db_user = "";
+	$db_pass = "";
+	$db_select = "";
+}
+*/
 $GLOBALS['config'] = array(
 	'mysql' => array(
 		'host' => $db_host,
