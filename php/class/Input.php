@@ -21,18 +21,19 @@
 			}
 		}
 		
-		public static function get($item) {
-			if (isset($_POST[$item])) {
-				return $_POST[$item];
-			} else if(isset($_GET[$item])) {
-				return $_GET[$item];
+		public static function post($item) {
+			if(self::exists('post', $item)) {
+				return filter_input(INPUT_POST, $item, FILTER_SANITIZE_SPECIAL_CHARS);
 			}
-			return '';
+			return false;
 		}
 		
-//		public static function post($item) { if(isset($_POST[$item])) { return $_POST[$item]; } return false; }
-//		public static functionn get($item) { if(isset($_GET[$item])) { return $_GET[$item]; } return false; }
-		
+		public static function get($item) {
+			if(self::exists('post', $item)) {
+				return filter_input(INPUT_GET, $item, FILTER_SANITIZE_SPECIAL_CHARS);
+			}
+			return false;
+		}
 	}
 	
 ?>

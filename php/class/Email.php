@@ -1,15 +1,20 @@
 <?php
 class Email {
+	private $to = null, 
+			$subject = null, 
+			$body = null;
 	
-	public function __contruct() {
-		
+	public function __contruct($to, $subject, $body) {
+		$this->to = $to;
+		$this->subject = $subject;
+		$this->body = $body;
 	}
-	public static function send($to = null, $subject = null, $body = null) {
-		if(!$to || !$subject || !$body) {
-			return false;
+	
+	public static function send() {
+		if ($to && $subject && $body) {
+			return true;
 		}
-		mail($to,$subject,$body);
-		return true;
+		return false;
 	}
 }
 ?>

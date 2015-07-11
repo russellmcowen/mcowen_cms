@@ -17,8 +17,7 @@
 		} 
 	} else { $page = "home"; }
 	
-	require_once 'index/html.php';
-	/*
+	// REMEMBER ME
 	if(Cookie::exists(Config::get('remember/cookie')) && !Session::exists(Config::get('session/session_name'))) {
 		$hash = Cookie::get(Config::get('remember/cookie'));
 		$hashCheck = DB::getInstance()->get('users_session', array('hash', '=', $hash));
@@ -27,32 +26,22 @@
 			$user->login();
 		}
 	}
-	if(Input::get('p')) {
-		$page = Input::get('p');
-		$subpage = null;
-		if(strpos($page, '/')) {
-			$temp = explode('/', $page);
-			$page = $temp[0];
-			$subpage = array();
-			$subpage = $temp;
-		}
-	} else { $page = "home"; }
+	
 	$user = new User();
+
+		require_once 'index/html.php';
 	/*
+	// FIRST VISIT
 	if(!Cookie::exists('firsttime')) {
 		Cookie::put('firsttime', 1, 0);
 		include_once"index/first-time.php";
 	} else {
 		require_once("index/html.php");
 	}
-	
 	// REFERRAL ID
 	if (Input::exists('get', 'ref_id')) {
 		Session::put('ref_id', Input::get('ref_id'));
 		Redirect::to('/');
 	}
-
-	require_once("index/html.php");
-	
 */	
 ?>

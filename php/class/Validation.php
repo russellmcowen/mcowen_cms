@@ -3,14 +3,12 @@
 		private $_passed = false, 
 				$_errors = array(), 
 				$_db = null;
-		public function __construct() {
-			$this->_db = DB::getInstance();
-		}
+		
+		public function __construct() { $this->_db = DB::getInstance(); }
 		
 		public function check($source, $items = array()) {
 			foreach($items as $item => $rules) {
 				foreach($rules as $rule => $rule_value) {
-					
 					$value = trim($source[$item]);
 					if($rule === 'required' && empty($value)) {
 						$this->addError("{$item} is required");
@@ -53,17 +51,11 @@
 			return $this;
 		}
 		
-		public function passed() {
-			return $this->_passed;
-		}
+		public function passed() { return $this->_passed; }
+
+		private function addError($e) { return $this->_errors[] = $e; }
 		
-		private function addError($e) {
-			return $this->_errors[] = $e;
-		}
-		
-		public function errors() {
-			return $this->_errors;
-		}
+		public function errors() { return $this->_errors; }
 		
 	}
 ?>
