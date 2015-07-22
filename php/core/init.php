@@ -30,15 +30,18 @@
 	$user = new User();
 
 		require_once 'index/html.php';
-	/*
-	// FIRST VISIT
+/*
+	* FIRST VISIT
+	* To display a page to users that visit for the first time.  Saves a Cookie otherwise.
 	if(!Cookie::exists('firsttime')) {
 		Cookie::put('firsttime', 1, 0);
 		include_once"index/first-time.php";
 	} else {
 		require_once("index/html.php");
 	}
-	// REFERRAL ID
+
+	* REFER USER
+	* ID of the Referring Account taken from the $_GET in the url.  Saved in Session.
 	if (Input::exists('get', 'ref_id')) {
 		Session::put('ref_id', Input::get('ref_id'));
 		Redirect::to('/');

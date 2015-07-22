@@ -29,7 +29,7 @@
 		}
 		
 		public static function get($item) {
-			if(self::exists('post', $item)) {
+			if(self::exists('get', $item)) {
 				return filter_input(INPUT_GET, $item, FILTER_SANITIZE_SPECIAL_CHARS);
 			}
 			return false;

@@ -42,7 +42,6 @@
 								break;							
 						}
 					}
-					
 				}
 			}
 			if (empty($this->_errors)) {
